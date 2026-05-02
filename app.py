@@ -8,6 +8,9 @@ import re
 import random
 import string
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'clanboost-pro-super-secret-key-2025')
