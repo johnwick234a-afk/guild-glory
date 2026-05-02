@@ -20,6 +20,9 @@ if db_uri.startswith("postgres://"):
     db_uri = db_uri.replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 
+# Debug print to Vercel logs
+print(f"DATABASE CONNECTION: {'PostgreSQL' if 'postgres' in db_uri else 'SQLite (Default)'}", flush=True)
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_EXPIRATION_HOURS'] = int(os.environ.get('JWT_EXPIRATION_HOURS', 24))
 
